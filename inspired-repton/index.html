@@ -111,6 +111,15 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
   color:var(--gold);
   margin-top:6px;
   text-align:center;
+  max-height:24px;
+  overflow:hidden;
+  opacity:1;
+  transition:max-height .35s var(--ease), opacity .25s var(--ease), margin-top .35s var(--ease);
+}
+.nav.scrolled .brand small{
+  max-height:0;
+  opacity:0;
+  margin-top:0;
 }
 .nav-left, .nav-right{
   display:flex;
