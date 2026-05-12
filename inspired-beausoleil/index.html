@@ -161,7 +161,7 @@
      ============================================================ */
   .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
     background:
       linear-gradient(180deg, rgba(0,38,84,0.10) 0%, rgba(0,38,84,0.55) 65%, rgba(0,38,84,0.85) 100%),
       url('../assets/stock/paris-cityscape.jpg') center 30% / cover no-repeat,
@@ -187,9 +187,9 @@
 
   .hero-inner {
     position: relative; z-index: 2;
-    height: 100%;
-    padding: 0 40px 64px;
-    display: flex; flex-direction: column; justify-content: flex-end;
+    min-height: calc(100vh - 80px);
+    padding: 110px 40px 64px;
+    display: flex; flex-direction: column; justify-content: center;
     max-width: 1500px; margin: 0 auto;
   }
 
