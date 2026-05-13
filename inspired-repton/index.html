@@ -153,19 +153,23 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 .nav-burger span{display:block;height:1px;background:var(--navy);width:100%;transition:transform .3s var(--ease), opacity .3s var(--ease)}
 
 /* ===== HERO ===== */
+:root{--header-h:70px;--hero-cap-max:1050px}
 .hero{
-  padding-top:110px;
+  padding-top:var(--header-h);
   background:var(--ivory);
   position:relative;
   min-height:100vh;
-  overflow:hidden;
+  min-height:100svh;
+  min-height:min(100svh, var(--hero-cap-max));
+  overflow:clip;
+  display:flex;
+  flex-direction:column;
 }
 .hero-photo{
   position:relative;
   width:100%;
-  height:46vh;
-  min-height:380px;
-  max-height:560px;
+  height:clamp(280px, 36vh, 440px);
+  min-height:280px;
   overflow:hidden;
   background:var(--navy);
 }
@@ -202,12 +206,12 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 .hero-h1{
   font-family:var(--serif);
   font-weight:300;
-  font-size:clamp(22px, 2.6vw, 30px);
-  letter-spacing:.34em;
+  font-size:clamp(28px, 3.4vw, 42px);
+  letter-spacing:.32em;
   text-transform:uppercase;
   color:var(--navy);
-  line-height:1.35;
-  margin-bottom:28px;
+  line-height:1.25;
+  margin-bottom:24px;
 }
 .hero-h1 em{
   font-style:italic;
@@ -1165,7 +1169,6 @@ section.compact{padding:40px 0}
   <div class="hero-meta reveal">
     <span>300 élèves</span>
     <span>32 nationalités</span>
-    <span>Trois campus</span>
     <span>12 par classe</span>
   </div>
 </header>
