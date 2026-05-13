@@ -128,15 +128,18 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--black);letter
 }
 
 /* --- HERO --- */
+:root{--header-h:72px;--hero-cap-max:1000px}
 .hero{
   position:relative;
   background:var(--white);
-  overflow:hidden;
+  overflow:clip;
 }
 .hero-grid{
   display:grid;
   grid-template-columns:minmax(0,5fr) minmax(0,7fr);
   min-height:100vh;
+  min-height:100svh;
+  min-height:min(100svh, var(--hero-cap-max));
 }
 .hero-left{
   background:var(--teal-night);
@@ -211,17 +214,17 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--black);letter
 }
 .hero-overlay{
   position:absolute;
-  right:48px;bottom:48px;
+  right:clamp(16px,3vw,48px);bottom:clamp(32px,5vh,60px);
   background:var(--teal-translucent);
   backdrop-filter:blur(2px);
   color:var(--white);
-  padding:28px 32px;
-  max-width:340px;
+  padding:24px 28px;
+  max-width:280px;
   border-left:5px solid var(--red);
 }
 .hero-overlay-num{
   font-family:var(--display);
-  font-size:46px;font-weight:600;
+  font-size:38px;font-weight:600;
   letter-spacing:-0.02em;
   line-height:1;
   margin-bottom:8px;
@@ -1090,9 +1093,9 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--black);letter
 <section class="hero" aria-label="Accueil">
   <div class="hero-grid">
     <div class="hero-left reveal">
-      <div class="hero-eyebrow">Paris 15<sup>e</sup> &nbsp;·&nbsp; Maternelle au lycée &nbsp;·&nbsp; Depuis 2012</div>
+      <div class="hero-eyebrow">Paris 15<sup>e</sup> &nbsp;·&nbsp; Maternelle au lycée</div>
       <h1 class="hero-title">L'école où chaque enfant trouve <em>sa place</em>, et ses deux voix.</h1>
-      <p class="hero-lede">Une école bilingue francais-anglais à taille humaine, au cœur de Paris. Classes de douze, double curriculum Cambridge et Education Nationale, trente-deux nationalités qui se côtoient chaque jour.</p>
+      <p class="hero-lede">Une école bilingue francais-anglais à taille humaine. Classes de douze, double curriculum Cambridge et Éducation Nationale, trente-deux nationalités.</p>
       <div class="hero-ctas">
         <button class="btn-primary" type="button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
           Visiter l'école
