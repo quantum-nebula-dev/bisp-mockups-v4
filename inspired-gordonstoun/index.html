@@ -135,7 +135,7 @@ body{
   /* Symmetric vertical padding for true vertical centering of content */
   padding:clamp(2rem, 5vw, 5rem) var(--pad-x);
   display:grid;grid-template-columns:minmax(0,42%) minmax(0,58%);
-  gap:clamp(2rem, 5vw, 4.5rem);align-items:center;
+  gap:clamp(2rem, 5vw, 4.5rem);align-items:safe center;
   /* Hero exactly fills the viewport area below the sticky topbar */
   min-height:calc(100vh - var(--header-h));
   min-height:calc(100svh - var(--header-h));

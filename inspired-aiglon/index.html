@@ -289,7 +289,8 @@ em { font-style: italic; font-family: var(--font-display); }
   overflow: clip;
   isolation: isolate;
   display: flex;
-  align-items: center;
+  /* safe center: falls back to flex-start when content overflows, preventing top clipping on short viewports */
+  align-items: safe center;
 }
 
 /* Étoiles / grain feutré */

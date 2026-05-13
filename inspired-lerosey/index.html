@@ -222,7 +222,8 @@ a { color: inherit; text-decoration: none; }
   overflow: clip;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* safe center: falls back to start when content overflows, preventing top clipping on short viewports */
+  justify-content: safe center;
 }
 .hero__eyebrow {
   font-size: 11.5px;

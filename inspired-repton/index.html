@@ -166,7 +166,8 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
   overflow:clip;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  /* safe center: falls back to start when content overflows */
+  justify-content:safe center;
 }
 .hero-photo{
   position:relative;
