@@ -129,12 +129,16 @@ body{
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
 /* ---- Hero ---- */
+:root{--header-h:74px;--hero-cap-max:1050px}
 .hero{
   max-width:var(--max);margin:0 auto;
-  padding:clamp(2.5rem, 6vw, 5rem) var(--pad-x) clamp(3rem, 7vw, 6rem);
+  padding:calc(var(--header-h) + clamp(2rem, 4vw, 4rem)) var(--pad-x) clamp(3rem, 7vw, 6rem);
   display:grid;grid-template-columns:minmax(0,42%) minmax(0,58%);
   gap:clamp(2rem, 5vw, 4.5rem);align-items:center;
   min-height:100vh;
+  min-height:100svh;
+  min-height:min(100svh, var(--hero-cap-max));
+  overflow:clip;
 }
 .hero-text{position:relative}
 .kicker{
@@ -748,8 +752,7 @@ body{
   <div class="hero-text reveal">
     <div class="kicker">Bilingue, bicultural, un seul lieu</div>
     <h1>
-      Une voix <span class="ampersand">&amp;</span><br>
-      <em>une autre voix</em>,<br>
+      Une voix <span class="ampersand">&amp;</span> <em>une autre voix</em>,<br>
       pour chaque enfant.
     </h1>
     <p class="lede">
@@ -767,7 +770,6 @@ body{
       <div><strong>300</strong><span>&eacute;l&egrave;ves &middot; 3 &agrave; 18 ans</span></div>
       <div><strong>32</strong><span>nationalit&eacute;s</span></div>
       <div><strong>12</strong><span>&eacute;l&egrave;ves par classe</span></div>
-      <div><strong>3</strong><span>campus &middot; Paris 15e</span></div>
     </div>
   </div>
 
