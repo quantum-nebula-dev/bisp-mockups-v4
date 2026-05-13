@@ -128,7 +128,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--black);letter
 }
 
 /* --- HERO --- */
-:root{--header-h:72px;--hero-cap-max:1200px}
+:root{--header-h:78px}
 .hero{
   position:relative;
   background:var(--white);
@@ -137,9 +137,9 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--black);letter
 .hero-grid{
   display:grid;
   grid-template-columns:minmax(0,5fr) minmax(0,7fr);
-  min-height:100vh;
-  min-height:100svh;
-  min-height:min(100svh, var(--hero-cap-max));
+  /* Hero exactly fills the viewport area below the sticky nav (no bleed, no cap) */
+  min-height:calc(100vh - var(--header-h));
+  min-height:calc(100svh - var(--header-h));
 }
 .hero-left{
   background:var(--teal-night);
@@ -235,7 +235,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--black);letter
 }
 
 @media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr;min-height:auto}
+  .hero-grid{grid-template-columns:1fr;min-height:calc(100svh - var(--header-h))}
   .hero-left{padding:60px 32px 50px}
   .hero-right{min-height:380px}
   .hero-overlay{right:24px;bottom:24px;padding:20px 22px}

@@ -273,18 +273,19 @@ em { font-style: italic; font-family: var(--font-display); }
 /* =========================================================
    HERO — bleu nuit dense, fresque parisienne, pavé typographique
    ========================================================= */
-:root{--header-h:72px;--hero-cap-max:1200px}
+:root{--header-h:72px}
 .hero {
   position: relative;
+  /* Hero exactly fills the viewport (no bleed, no cap). Fixed topbar overlays first --header-h px. */
   min-height: 100vh;
   min-height: 100svh;
-  min-height: min(100svh, var(--hero-cap-max));
   background:
     linear-gradient(180deg, rgba(10, 22, 44, .65) 0%, rgba(10, 22, 44, .82) 60%, rgba(10, 22, 44, .96) 100%),
     radial-gradient(1200px 600px at 12% 10%, rgba(201,164,74,.08), transparent 70%),
     linear-gradient(135deg, #0a1226 0%, #122545 60%, #0f1e3a 100%);
   color: var(--paper);
-  padding: calc(var(--header-h) + clamp(32px, 4vh, 64px)) 0 clamp(48px, 6vh, 80px);
+  /* padding-top reserves space for the fixed topbar so flex-centered content sits in the visible band */
+  padding: var(--header-h) 0 0;
   overflow: clip;
   isolation: isolate;
   display: flex;
@@ -1475,7 +1476,7 @@ em { font-style: italic; font-family: var(--font-display); }
   .colophon-grid { grid-template-columns: 1fr 1fr; }
   .colophon-head { grid-template-columns: 1fr; }
   .admissions-card { grid-template-columns: 1fr; gap: 48px; padding: 48px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 60px; padding-bottom: 70px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 60px; }
   .manifest-grid, .quartier-grid, .archive-grid, .journey-head { grid-template-columns: 1fr; gap: 40px; }
   .manifest-aside { border-left: none; border-top: 1px solid var(--hairline); padding-left: 0; padding-top: 30px; }
   .pillars-head { flex-direction: column; align-items: start; gap: 24px; }
@@ -1487,7 +1488,7 @@ em { font-style: italic; font-family: var(--font-display); }
   .wrap, .wrap-r, .wrap-n { padding: 0 22px; }
   .nav-list { display: none; }
   .hamburger { display: inline-grid; place-items: center; }
-  .hero { padding: 120px 0 0; }
+  .hero { padding: var(--header-h) 0 0; min-height: 100svh; }
   .hero-meta { grid-template-columns: 1fr 1fr; }
   .pillars-grid { grid-template-columns: 1fr; }
   .numbers-grid { grid-template-columns: 1fr; }

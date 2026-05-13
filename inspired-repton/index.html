@@ -154,17 +154,19 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 .nav-burger span{display:block;height:1px;background:var(--navy);width:100%;transition:transform .3s var(--ease), opacity .3s var(--ease)}
 
 /* ===== HERO ===== */
-:root{--header-h:70px;--hero-cap-max:1200px}
+:root{--header-h:70px}
 .hero{
-  padding-top:var(--header-h);
+  /* Reserve nav-h on top (nav is position:fixed overlay), 0 on bottom — flex-center handles the rest */
+  padding:var(--header-h) 0 0;
   background:var(--ivory);
   position:relative;
+  /* Hero exactly fills the viewport (no bleed, no cap). */
   min-height:100vh;
   min-height:100svh;
-  min-height:min(100svh, var(--hero-cap-max));
   overflow:clip;
   display:flex;
   flex-direction:column;
+  justify-content:center;
 }
 .hero-photo{
   position:relative;
@@ -1041,6 +1043,12 @@ section.compact{padding:40px 0}
 .reveal-stagger.in > *{opacity:1;transform:translateY(0)}
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1180px){
+  /* Compact nav tagline to avoid collision with menu items on mid-width viewports */
+  .nav-left, .nav-right{gap:22px;font-size:10px;letter-spacing:.18em}
+  .brand{font-size:20px;letter-spacing:.28em}
+  .brand small{font-size:7.5px;letter-spacing:.18em}
+}
 @media (max-width: 1024px){
   .headmaster{grid-template-columns:1fr;gap:50px}
   .timeline-rail{display:none}
@@ -1049,6 +1057,10 @@ section.compact{padding:40px 0}
   .pillar:nth-child(1), .pillar:nth-child(2){border-bottom:1px solid var(--rule-soft)}
   .campus-grid{grid-template-columns:1fr 1fr}
   .campus-grid > *:last-child{grid-column:span 2;max-width:560px;margin:0 auto;width:100%}
+  /* Stronger nav tagline compaction on narrow tablets */
+  .nav-left, .nav-right{gap:16px;font-size:9.5px;letter-spacing:.16em}
+  .brand{font-size:18px}
+  .brand small{font-size:7px;letter-spacing:.14em}
 }
 
 @media (max-width: 768px){
@@ -1070,7 +1082,7 @@ section.compact{padding:40px 0}
   .nav.open .nav-burger span:nth-child(2){opacity:0}
   .nav.open .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-  .hero{padding-top:90px}
+  .hero{padding-top:var(--header-h); min-height:100svh;}
   .hero-photo{height:38vh;min-height:280px}
   .hero-h1{font-size:18px;letter-spacing:.22em}
   .hero-meta{gap:24px;font-size:9.5px;letter-spacing:.2em}

@@ -129,15 +129,16 @@ body{
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
 /* ---- Hero ---- */
-:root{--header-h:74px;--hero-cap-max:1200px}
+:root{--header-h:74px}
 .hero{
   max-width:var(--max);margin:0 auto;
-  padding:calc(var(--header-h) + clamp(2rem, 4vw, 4rem)) var(--pad-x) clamp(3rem, 7vw, 6rem);
+  /* Symmetric vertical padding for true vertical centering of content */
+  padding:clamp(2rem, 5vw, 5rem) var(--pad-x);
   display:grid;grid-template-columns:minmax(0,42%) minmax(0,58%);
   gap:clamp(2rem, 5vw, 4.5rem);align-items:center;
-  min-height:100vh;
-  min-height:100svh;
-  min-height:min(100svh, var(--hero-cap-max));
+  /* Hero exactly fills the viewport area below the sticky topbar */
+  min-height:calc(100vh - var(--header-h));
+  min-height:calc(100svh - var(--header-h));
   overflow:clip;
 }
 .hero-text{position:relative}
@@ -689,7 +690,7 @@ body{
   }
   .nav.open .lang{margin:0;padding:0;border:0}
   .burger{display:block}
-  .hero{padding-top:2.5rem}
+  .hero{padding:2rem var(--pad-x); min-height:calc(100svh - var(--header-h));}
   .hero h1{font-size:clamp(2rem, 8vw, 2.8rem)}
   .pillars-grid{grid-template-columns:1fr}
   .pillar{border-right:0;border-bottom:1px solid var(--rule);padding:1.8rem 0}
