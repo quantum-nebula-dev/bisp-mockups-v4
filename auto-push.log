@@ -4,3 +4,6 @@ To https://github.com/quantum-nebula-dev/bisp-mockups-v4.git
 To https://github.com/quantum-nebula-dev/bisp-mockups-v4.git
    f980077..a196ec6  main -> main
 2026-05-11 19:41:39 — Pushed (5 commits): fix(inspired-beausoleil): typography normalization in age ranges and addresses
+To https://github.com/quantum-nebula-dev/bisp-mockups-v4.git
+   6199bbd..e11d2ca  main -> main
+2026-05-13 15:01:53 — Pushed (5 commits): style(inspired): Responsive hero refactor with CSS variables and 100svh optimization across 4 school pages
